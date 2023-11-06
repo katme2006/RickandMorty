@@ -1,0 +1,15 @@
+li{
+  list-style: none;
+}
+
+.char-list{
+  display: flex;
+  flex-wrap: wrap;
+  width:90%;
+  margin: 5vh auto;
+  justify-content: space-around;
+}
+
+.charCard{
+  margin: 2vh 0;
+}
