@@ -14,8 +14,7 @@ function App() {
   return (
     <>
       <TopNav />
-
-      <Outlet />
+      <Outlet context={{favorites, setFavorites}}/>
     </>
   );
 }
