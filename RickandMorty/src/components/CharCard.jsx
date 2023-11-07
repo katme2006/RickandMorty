@@ -15,19 +15,27 @@ function CharCard({
   origin,
   episodes,
   favorites,
-  setFavorites
+  setFavorites,
 }) {
+  const navigate = useNavigate();
 
-
-  const navigate = useNavigate(); // Get the navigate function
-
-  // Function to handle click event
   const handleClick = () => {
-    navigate(`/profile/${id}`); // Navigate to the profile page of the character
+    navigate(`/profile/${id}`);
+  };
+
+  const addToFavorites = () => {
+    const isCharacterInFavorites = favorites.some((char) => char.id === id);
+
+    if (favorites.length <4 && !isCharacterInFavorites) {
+      setFavorites([...favorites, { id: id, name: name, image: image }]);
+    }
+
+
+    
   };
 
   return (
-    <div className="charCard" >
+    <div className="charCard">
       {" "}
       {/* Add the onClick event handler here */}
       <Card
@@ -46,12 +54,9 @@ function CharCard({
           <ListGroup.Item>Gender: {gender}</ListGroup.Item>
           <ListGroup.Item>Location: {location}</ListGroup.Item>
           <ListGroup.Item>Origin: {origin}</ListGroup.Item>
-          <Button variant="secondary"
-          onClick={() =>
-            setFavorites([...favorites, { id: id, name: name, image: image }])
-          }
-          
-          >Add to Favorites</Button>
+          <Button variant="secondary" onClick={addToFavorites}>
+            Add to Favorites
+          </Button>
         </ListGroup>
       </Card>
     </div>

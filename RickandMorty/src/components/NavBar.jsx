@@ -17,6 +17,10 @@ function TopNav() {
           <li>
             <Link className="nav-link" to="characterpage/">Characters  </Link>
           </li>
+          <li>
+          <Link className="nav-link" to="favorites">Favorites</Link>
+          </li>
+         
       </ul>
     </nav >
     </>
