@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Button } from 'react-bootstrap';
 
 function CharCard({
   id, // Add 'id' to the props
@@ -35,6 +36,7 @@ function CharCard({
           <ListGroup.Item>Gender: {gender}</ListGroup.Item>
           <ListGroup.Item>Location: {location}</ListGroup.Item>
           <ListGroup.Item>Origin: {origin}</ListGroup.Item>
+          <Button variant="secondary">Add to Favorites</Button>
         </ListGroup>
       </Card>
     </div>
