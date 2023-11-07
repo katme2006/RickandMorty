@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CharCard from "../components/CharCard";
 import Pagination from "react-bootstrap/Pagination";
-import "../App.css"
+import "../App.css";
 
 function CharacterPage() {
   const [characters, setCharacters] = useState([]);
@@ -29,7 +29,7 @@ function CharacterPage() {
   //loop number of pages - there are 42 total pages to do so we put that in the loop
   for (let i = 1; i <= 42; i++) {
     pageList.push(
-      <Pagination.Item 
+      <Pagination.Item
         key={i}
         active={i === pageNumber}
         onClick={() => setPageNumber(i)}
@@ -40,41 +40,44 @@ function CharacterPage() {
   }
 
   return (
-    
-      <div  className="m-12">
-        <div className="heading-div">
-        <h1>
-          Characters
-        </h1>
-        </div>
-
-        <Pagination className="bg-secondary">
-        <Pagination.First onClick={() => setPageNumber(1)}/>
-          <Pagination.Prev onClick={() => setPageNumber(page => page - 1)}/>
-          {pageList}
-          <Pagination.Next onClick={() => setPageNumber(page => page + 1)} disabled={pageNumber === 42} />
-          <Pagination.Last onClick={() => setPageNumber(42)} disabled={pageNumber === 42} />
-        </Pagination>
-
-        <ul className="char-list">
-          {characters.map((character) => (
-            <li key={character.id}>
-              <CharCard
-                name={character.name}
-                status={character.status}
-                species={character.species}
-                image={character.image}
-                gender={character.gender}
-                type={character.type}
-                location={character.location.name}
-                origin={character.origin.name}
-                episodes={character.episode}
-              />
-            </li>
-          ))}
-        </ul>
+    <div className="m-12">
+      <div className="heading-div">
+        <h1>Characters</h1>
       </div>
-    
+
+      <Pagination className="bg-secondary">
+        <Pagination.First onClick={() => setPageNumber(1)} />
+        <Pagination.Prev onClick={() => setPageNumber((page) => page - 1)} />
+        {pageList}
+        <Pagination.Next
+          onClick={() => setPageNumber((page) => page + 1)}
+          disabled={pageNumber === 42}
+        />
+        <Pagination.Last
+          onClick={() => setPageNumber(42)}
+          disabled={pageNumber === 42}
+        />
+      </Pagination>
+
+      <ul className="char-list">
+        {characters.map((character) => (
+          <li key={character.id}>
+            <CharCard
+            id={character.id}
+              name={character.name}
+              status={character.status}
+              species={character.species}
+              image={character.image}
+              gender={character.gender}
+              type={character.type}
+              location={character.location.name}
+              origin={character.origin.name}
+              episodes={character.episode}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
