@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CharCard from "../components/CharCard";
 import Pagination from "react-bootstrap/Pagination";
-import "../App.css";
+import { useOutletContext } from "react-router-dom";
+
 
 function CharacterPage() {
   const [characters, setCharacters] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const { setFavorites,favorites } = useOutletContext();
 
   useEffect(() => {
     const getCharacters = async (page) => {
@@ -73,6 +75,8 @@ function CharacterPage() {
               location={character.location.name}
               origin={character.origin.name}
               episodes={character.episode}
+              favorites={favorites}
+              setFavorites={setFavorites}
             />
           </li>
         ))}
