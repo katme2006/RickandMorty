@@ -47,6 +47,20 @@ li {
   margin-top: 20%;
   width: 18vmax;
 }
+.page-holder{
+  display:flex !important;
+  width:40%;
+  margin: auto;
+  margin-top:4vh;
+}
+
+
+.page-block{
+background-color:#2fd629 !important;
+color:#2fd629 !important;
+}
+
+
 
 .pickle-rick {
   position: absolute; /* or relative to a positioned parent */

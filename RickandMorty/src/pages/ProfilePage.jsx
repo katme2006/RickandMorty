@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CharCard from "../components/CharCard";
+import { useOutletContext } from "react-router-dom";
 
 function ProfilePage() {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
+  const { setFavorites,favorites } = useOutletContext();
 
   useEffect(() => {
     const getCharacter = async () => {
@@ -30,6 +32,7 @@ function ProfilePage() {
       {character ? (
         <>
           <h1>{character.name}</h1>
+          <div className="char-list">
           <CharCard
             name={character.name}
             status={character.status}
@@ -40,7 +43,10 @@ function ProfilePage() {
             location={character.location && character.location.name} // Check if 'location' exists before trying to access 'name'
             origin={character.origin && character.origin.name} // Check if 'origin' exists before trying to access 'name'
             episodes={character.episode}
+            favorites={favorites}
+            setFavorites={setFavorites}
           />
+          </div>
         </>
       ) : (
         <p>Loading...</p> // Render loading state if 'character' is null

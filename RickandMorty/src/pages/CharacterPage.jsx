@@ -3,6 +3,7 @@ import axios from "axios";
 import CharCard from "../components/CharCard";
 import Pagination from "react-bootstrap/Pagination";
 import { useOutletContext } from "react-router-dom";
+import CharCardSmall from "../components/CharCardSmall";
 
 
 function CharacterPage() {
@@ -47,10 +48,20 @@ function CharacterPage() {
         <h1>Characters</h1>
       </div>
 
-      <Pagination className="bg-secondary">
+      <Pagination className="page-holder">
         <Pagination.First onClick={() => setPageNumber(1)} />
-        <Pagination.Prev onClick={() => setPageNumber((page) => page - 1)} />
-        {pageList}
+        <Pagination.Prev onClick={() => {if(pageNumber>1){setPageNumber((page) => page - 1)}} }/>
+        {/* {pageList[0],[1],[2]} */}
+       
+     
+     
+      <Pagination.Item  className="page-block active" active>{pageNumber}</Pagination.Item>
+      <Pagination.Item   className="page-block" onClick={() => setPageNumber((page) => page + 1)}
+        >{pageNumber+1}</Pagination.Item>
+          <Pagination.Item   className="page-block" onClick={() => setPageNumber((page) => page + 2)}
+        >{pageNumber+2}</Pagination.Item>
+      
+      <Pagination.Ellipsis />
         <Pagination.Next
           onClick={() => setPageNumber((page) => page + 1)}
           disabled={pageNumber === 42}
@@ -64,17 +75,10 @@ function CharacterPage() {
       <ul className="char-list">
         {characters.map((character) => (
           <li key={character.id}>
-            <CharCard
+            <CharCardSmall
             id={character.id}
               name={character.name}
-              status={character.status}
-              species={character.species}
               image={character.image}
-              gender={character.gender}
-              type={character.type}
-              location={character.location.name}
-              origin={character.origin.name}
-              episodes={character.episode}
               favorites={favorites}
               setFavorites={setFavorites}
             />
