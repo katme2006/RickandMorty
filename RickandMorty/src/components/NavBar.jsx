@@ -9,13 +9,13 @@ function TopNav() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home  </Link>
+            <Link className="nav-link" to="/">Home  </Link>
           </li>
           <li>
-            <Link to="about/">About  </Link>
+            <Link className="nav-link" to="about/">About  </Link>
           </li>
           <li>
-            <Link to="characterpage/">Character  </Link>
+            <Link className="nav-link" to="characterpage/">Characters  </Link>
           </li>
       </ul>
     </nav >

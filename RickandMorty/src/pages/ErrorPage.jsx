@@ -4,9 +4,10 @@ function ErrorPage() {
     return (
       <>
         <div className="m-12">
-          <h1 className="text-blue-400 text-center w-3/4 m-auto font-black text-7xl">
-            Error! Page Not Found
+          <h1>
+            404: Dimension Not Found
           </h1>
+          <p>Better head home</p>
           <Link to='/'>Home</Link>
         </div>
   

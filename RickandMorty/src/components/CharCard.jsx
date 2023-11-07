@@ -14,9 +14,11 @@ function CharCard({
   episodes,
 }) {
   return (
-    <Card className="charCard" style={{ width: "18rem" }}>
+
+    <div className="charCard">
+    <Card  style={{ width: "18rem", backgroundColor: "black", text:"white",}}>
       <Card.Img variant="top" src={image} />
-      <Card.Body>
+      <Card.Body >
         <Card.Title>{name}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
@@ -33,8 +35,8 @@ function CharCard({
           Origin: <Card.Link href="#">{origin}</Card.Link>
         </ListGroup.Item>
       </ListGroup>
-
     </Card>
+    </div>
   );
 }
 

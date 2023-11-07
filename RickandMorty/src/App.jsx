@@ -1,21 +1,15 @@
-import './App.css'
+import "./App.css";
 import { Outlet, Link } from "react-router-dom";
-import TopNav from './components/NavBar';
-
-
-
-
+import TopNav from "./components/NavBar";
 
 function App() {
-
-
   return (
     <>
-    <TopNav/>
- 
+      <TopNav />
+
       <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
