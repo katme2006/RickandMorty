@@ -55,11 +55,25 @@ function CharCard({
           <ListGroup.Item>Location: {location}</ListGroup.Item>
           <ListGroup.Item>Origin: {origin}</ListGroup.Item>
           {isCharacterInFavorites ? (
-            <Button variant="danger" onClick={handleFavoriteClick}>
+            <Button
+              variant="danger"
+              onClick={handleFavoriteClick}
+              style={{
+                width: "75%",
+                margin: "5% auto",
+                backgroundColor: "#2fd629",
+                color: "black",
+                borderColor: "#2fd629",
+              }}
+            >
               Remove from Favorites
             </Button>
           ) : (
-            <Button variant="secondary" onClick={handleFavoriteClick}>
+            <Button
+              variant="secondary"
+              onClick={handleFavoriteClick}
+              style={{ width: "75%", margin: "5% auto" }}
+            >
               Add to Favorites
             </Button>
           )}

@@ -16,6 +16,8 @@ function Favorites() {
             image={char.image}
             setFavorites={setFavorites}
             favorites={favorites}
+            location={char.location}
+            
           />
         ))}
       </div>

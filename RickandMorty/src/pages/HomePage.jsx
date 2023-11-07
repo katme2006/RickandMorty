@@ -1,8 +1,9 @@
 import rickandMortylogo from "../assets/Rick_and_Morty.svg";
-
+import MyModal from "../components/Modal";
 function HomePage() {
   return (
     <>
+    <MyModal/>
       <div className="home-container">
         <img className="logo scale-up-center" src={rickandMortylogo} alt="Rick and Morty"></img>
        
