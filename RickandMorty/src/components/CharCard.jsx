@@ -23,26 +23,26 @@ function CharCard({
     navigate(`/profile/${id}`);
   };
 
-  const addToFavorites = () => {
-    const isCharacterInFavorites = favorites.some((char) => char.id === id);
+  const isCharacterInFavorites = favorites.some((char) => char.id === id);
 
-    if (favorites.length <4 && !isCharacterInFavorites) {
-      setFavorites([...favorites, { id: id, name: name, image: image }]);
+  const handleFavoriteClick = () => {
+    if (isCharacterInFavorites) {
+      const updatedFavorites = favorites.filter((char) => char.id !== id);
+      setFavorites(updatedFavorites);
+    } else {
+      if (favorites.length < 4) {
+        setFavorites([...favorites, { id: id, name: name, image: image }]);
+      } else {
+        alert("You cannot have more than four favorites");
+      }
     }
-
-
-    
   };
 
   return (
     <div className="charCard">
-      {" "}
-      {/* Add the onClick event handler here */}
       <Card
         style={{ width: "18rem", backgroundColor: "black", color: "white" }}
       >
-        {" "}
-        {/* Corrected 'text' to 'color' */}
         <Card.Img onClick={handleClick} variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -54,9 +54,15 @@ function CharCard({
           <ListGroup.Item>Gender: {gender}</ListGroup.Item>
           <ListGroup.Item>Location: {location}</ListGroup.Item>
           <ListGroup.Item>Origin: {origin}</ListGroup.Item>
-          <Button variant="secondary" onClick={addToFavorites}>
-            Add to Favorites
-          </Button>
+          {isCharacterInFavorites ? (
+            <Button variant="danger" onClick={handleFavoriteClick}>
+              Remove from Favorites
+            </Button>
+          ) : (
+            <Button variant="secondary" onClick={handleFavoriteClick}>
+              Add to Favorites
+            </Button>
+          )}
         </ListGroup>
       </Card>
     </div>
