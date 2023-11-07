@@ -1,8 +1,16 @@
 import "./App.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import TopNav from "./components/NavBar";
+import { useEffect, useState } from 'react'
 
 function App() {
+
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(()=>{
+    console.log(favorites)
+  }, [favorites])
+
   return (
     <>
       <TopNav />

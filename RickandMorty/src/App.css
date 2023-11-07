@@ -45,13 +45,13 @@ li {
 .pickle-rick {
   margin-left: 38%;
   margin-top: 20%;
-  width: 24vmax;
+  width: 18vmax;
 }
 
 .pickle-rick {
   position: absolute; /* or relative to a positioned parent */
   z-index: -2; /* Behind the logo */
-  top: 20%; /* Adjust as needed to align with the logo */
+  top: 15%; /* Adjust as needed to align with the logo */
   transform-origin: center; /* Ensures the spin is centered */
   animation: swing 12s infinite alternate ease-in-out;
 }
@@ -103,7 +103,7 @@ ul {
     transform: rotate(-50deg);
   } /* Swing to the left */
   100% {
-    transform: rotate(20deg);
+    transform: rotate(-5deg);
   } /* Swing to the right */
 }
 
