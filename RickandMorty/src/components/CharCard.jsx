@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import { Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import { Button } from "react-bootstrap";
 
 function CharCard({
   id, // Add 'id' to the props
@@ -14,7 +14,11 @@ function CharCard({
   location,
   origin,
   episodes,
+  favorites,
+  setFavorites
 }) {
+
+
   const navigate = useNavigate(); // Get the navigate function
 
   // Function to handle click event
@@ -23,9 +27,15 @@ function CharCard({
   };
 
   return (
-    <div className="charCard" onClick={handleClick}> {/* Add the onClick event handler here */}
-      <Card style={{ width: "18rem", backgroundColor: "black", color: "white" }}> {/* Corrected 'text' to 'color' */}
-        <Card.Img variant="top" src={image} />
+    <div className="charCard" >
+      {" "}
+      {/* Add the onClick event handler here */}
+      <Card
+        style={{ width: "18rem", backgroundColor: "black", color: "white" }}
+      >
+        {" "}
+        {/* Corrected 'text' to 'color' */}
+        <Card.Img onClick={handleClick} variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
         </Card.Body>
@@ -36,7 +46,12 @@ function CharCard({
           <ListGroup.Item>Gender: {gender}</ListGroup.Item>
           <ListGroup.Item>Location: {location}</ListGroup.Item>
           <ListGroup.Item>Origin: {origin}</ListGroup.Item>
-          <Button variant="secondary">Add to Favorites</Button>
+          <Button variant="secondary"
+          onClick={() =>
+            setFavorites([...favorites, { id: id, name: name, image: image }])
+          }
+          
+          >Add to Favorites</Button>
         </ListGroup>
       </Card>
     </div>
