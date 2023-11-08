@@ -5,11 +5,10 @@ import Pagination from "react-bootstrap/Pagination";
 import { useOutletContext } from "react-router-dom";
 import CharCardSmall from "../components/CharCardSmall";
 
-
 function CharacterPage() {
   const [characters, setCharacters] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const { setFavorites,favorites } = useOutletContext();
+  const { setFavorites, favorites } = useOutletContext();
 
   useEffect(() => {
     const getCharacters = async (page) => {
@@ -50,18 +49,32 @@ function CharacterPage() {
 
       <Pagination className="page-holder">
         <Pagination.First onClick={() => setPageNumber(1)} />
-        <Pagination.Prev onClick={() => {if(pageNumber>1){setPageNumber((page) => page - 1)}} }/>
+        <Pagination.Prev
+          onClick={() => {
+            if (pageNumber > 1) {
+              setPageNumber((page) => page - 1);
+            }
+          }}
+        />
         {/* {pageList[0],[1],[2]} */}
-       
-     
-     
-      <Pagination.Item  className="page-block active" active>{pageNumber}</Pagination.Item>
-      <Pagination.Item   className="page-block" onClick={() => setPageNumber((page) => page + 1)}
-        >{pageNumber+1}</Pagination.Item>
-          <Pagination.Item   className="page-block" onClick={() => setPageNumber((page) => page + 2)}
-        >{pageNumber+2}</Pagination.Item>
-      
-      <Pagination.Ellipsis />
+
+        <Pagination.Item className="page-block active" active>
+          {pageNumber}
+        </Pagination.Item>
+        <Pagination.Item
+          className="page-block"
+          onClick={() => setPageNumber((page) => page + 1)}
+        >
+          {pageNumber + 1}
+        </Pagination.Item>
+        <Pagination.Item
+          className="page-block"
+          onClick={() => setPageNumber((page) => page + 2)}
+        >
+          {pageNumber + 2}
+        </Pagination.Item>
+
+        <Pagination.Ellipsis />
         <Pagination.Next
           onClick={() => setPageNumber((page) => page + 1)}
           disabled={pageNumber === 42}
@@ -76,9 +89,16 @@ function CharacterPage() {
         {characters.map((character) => (
           <li key={character.id}>
             <CharCardSmall
-            id={character.id}
+              id={character.id}
               name={character.name}
+              status={character.status}
+              species={character.species}
               image={character.image}
+              gender={character.gender}
+              type={character.type}
+              location={character.location && character.location.name} 
+              origin={character.origin && character.origin.name} 
+              episodes={character.episode}
               favorites={favorites}
               setFavorites={setFavorites}
             />

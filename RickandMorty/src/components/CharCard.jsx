@@ -31,7 +31,17 @@ function CharCard({
       setFavorites(updatedFavorites);
     } else {
       if (favorites.length < 4) {
-        setFavorites([...favorites, { id: id, name: name, image: image }]);
+        setFavorites([...favorites, { 
+          id: id, 
+          name: name, 
+          image: image,
+          origin: origin,
+          location:location,
+          status:status,
+          species:species,
+          gender:gender,
+          type:type,
+        }]);
       } else {
         alert("You cannot have more than four favorites");
       }

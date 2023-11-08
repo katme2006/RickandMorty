@@ -17,7 +17,11 @@ function Favorites() {
             setFavorites={setFavorites}
             favorites={favorites}
             location={char.location}
-            
+            origin={char.origin}
+            species={char.species}
+            status={char.status}
+            gender={char.gender}
+            type={char.type}
           />
         ))}
       </div>

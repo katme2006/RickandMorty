@@ -24,9 +24,9 @@ function ProfilePage() {
     if (id) {
       getCharacter();
     }
-  }, [id]); // Dependency array includes 'id'
+  }, [id]); 
 
-  // Check if 'character' is not null before trying to access its properties
+  // Check if 'character' is found
   return (
     <>
       {character ? (
@@ -49,7 +49,7 @@ function ProfilePage() {
           </div>
         </>
       ) : (
-        <p>Loading...</p> // Render loading state if 'character' is null
+        <p>Loading...</p> 
       )}
     </>
   );
