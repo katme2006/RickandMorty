@@ -7,7 +7,7 @@ import { useOutletContext } from "react-router-dom";
 function ProfilePage() {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
-  const { setFavorites,favorites } = useOutletContext();
+  const { setFavorites, favorites } = useOutletContext();
 
   useEffect(() => {
     const getCharacter = async () => {
@@ -17,14 +17,14 @@ function ProfilePage() {
         );
         setCharacter(response.data);
       } catch (error) {
-        console.error('Failed to fetch character', error);
+        console.error("Failed to fetch character", error);
       }
     };
 
     if (id) {
       getCharacter();
     }
-  }, [id]); 
+  }, [id]);
 
   // Check if 'character' is found
   return (
@@ -33,23 +33,24 @@ function ProfilePage() {
         <>
           <h1>{character.name}</h1>
           <div className="char-list">
-          <CharCard
-            name={character.name}
-            status={character.status}
-            species={character.species}
-            image={character.image}
-            gender={character.gender}
-            type={character.type}
-            location={character.location && character.location.name} // Check if 'location' exists before trying to access 'name'
-            origin={character.origin && character.origin.name} // Check if 'origin' exists before trying to access 'name'
-            episodes={character.episode}
-            favorites={favorites}
-            setFavorites={setFavorites}
-          />
+            <CharCard
+              id={character.id}
+              name={character.name}
+              status={character.status}
+              species={character.species}
+              image={character.image}
+              gender={character.gender}
+              type={character.type}
+              location={character.location && character.location.name} // Check if 'location' exists before trying to access 'name'
+              origin={character.origin && character.origin.name} // Check if 'origin' exists before trying to access 'name'
+              episodes={character.episode}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
           </div>
         </>
       ) : (
-        <p>Loading...</p> 
+        <p>Loading...</p>
       )}
     </>
   );

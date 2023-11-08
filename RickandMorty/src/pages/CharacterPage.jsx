@@ -96,8 +96,8 @@ function CharacterPage() {
               image={character.image}
               gender={character.gender}
               type={character.type}
-              location={character.location && character.location.name} 
-              origin={character.origin && character.origin.name} 
+              location={character.location && character.location.name}
+              origin={character.origin && character.origin.name}
               episodes={character.episode}
               favorites={favorites}
               setFavorites={setFavorites}

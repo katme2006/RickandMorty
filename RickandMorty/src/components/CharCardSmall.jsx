@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
 
-
 function CharCardSmall({
   id, // Add 'id' to the props
   name,

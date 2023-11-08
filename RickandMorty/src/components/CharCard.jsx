@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
 
 function CharCard({
-  id, // Add 'id' to the props
+  id, 
   name,
   status,
   species,
@@ -31,17 +31,20 @@ function CharCard({
       setFavorites(updatedFavorites);
     } else {
       if (favorites.length < 4) {
-        setFavorites([...favorites, { 
-          id: id, 
-          name: name, 
-          image: image,
-          origin: origin,
-          location:location,
-          status:status,
-          species:species,
-          gender:gender,
-          type:type,
-        }]);
+        setFavorites([
+          ...favorites,
+          {
+            id: id,
+            name: name,
+            image: image,
+            origin: origin,
+            location: location,
+            status: status,
+            species: species,
+            gender: gender,
+            type: type,
+          },
+        ]);
       } else {
         alert("You cannot have more than four favorites");
       }

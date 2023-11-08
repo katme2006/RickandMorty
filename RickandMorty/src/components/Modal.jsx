@@ -10,7 +10,7 @@ function MyModal() {
   return (
     <div>
     <div
-      className={`modal ${show ? "show" : ""}`} // Conditional class to show/hide the modal
+      className={`modal ${show ? "show" : ""}`} 
       style={{
         display: show ? "block" : "none",
         zIndex: 20,
@@ -19,8 +19,8 @@ function MyModal() {
         width: "80%",
         margin: "10%",
        
-      }} // Conditional styling to show/hide the modal
-      onClick={handleClose} // Set the click handler to close the modal
+      }} 
+      onClick={handleClose} 
     >
       <Modal.Dialog>
         <Modal.Header closeButton closeVariant="primary" onHide={handleClose}>

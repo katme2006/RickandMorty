@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import CharCard from "../components/CharCard";
+import CharCardSmall from "../components/CharCard";
 
 function Favorites() {
   const { setFavorites, favorites } = useOutletContext();
@@ -9,7 +9,7 @@ function Favorites() {
       <h1>Favorites</h1>
       <div className="char-list">
         {favorites.map((char) => (
-          <CharCard
+          <CharCardSmall
             key={char.id}
             id={char.id}
             name={char.name}
